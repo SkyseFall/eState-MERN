@@ -1,0 +1,19 @@
+{
+  "name": "estate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "_comment1": "module is used below so that IMPORT can we used instead of REQUIRE ",
+  "type": "module",
+  "scripts": {
+   "dev":"nodemon api/index.js",
+   "start":"node api/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemon": "^3.1.0"
+  }
+}
