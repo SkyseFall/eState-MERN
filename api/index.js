@@ -24,3 +24,17 @@ app.use(express.json());
 // APIs router list.
 app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
+
+
+// Middleware
+// to catch an error
+app.use((err, req, res, next) => {
+    const statusCode = err.statusCode || 500;
+    const errMessage = err.message || "Intenal server error";
+
+    return res.status(statusCode).json({
+        success: false,
+        statusCode,
+        errMessage,
+    });
+});
