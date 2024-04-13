@@ -1,6 +1,6 @@
 import React from 'react';
 import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
-import { app } from '../firebase';
+import { appFirebase } from '../firebase';
 import { useDispatch } from "react-redux";
 import { signInSuccess } from '../rudex/user/userSlice';
 import { useNavigate } from 'react-router-dom';
@@ -12,7 +12,7 @@ export default function OAuth() {
     const handleGoogleClick = async () => {
         try {
             const provider = new GoogleAuthProvider();
-            const auth = getAuth(app);
+            const auth = getAuth(appFirebase);
 
             const result = await signInWithPopup(auth, provider);
             console.log(result);
