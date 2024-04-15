@@ -32,3 +32,17 @@ export const updateUser = async (req, res, next) => {
         next(error);
     }
 };
+
+// 2nd step to create delete logic. then go to... profile UI page.
+export const deleteUser = async (req, res, next) => {
+    if (req.user.id !== req.params.id) return next(errorhandle(401, "Invalid user"));
+
+    try {
+
+        await User.findByIdAndDelete(req.params.id);
+        res.clearcookie('access_token');
+        res.status(200).json("user has been deleted Successfully!");
+    } catch (error) {
+        next(error);
+    }
+}
