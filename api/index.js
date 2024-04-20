@@ -34,11 +34,11 @@ app.use("/api/listing", listingRouter);
 // to catch an error
 app.use((err, req, res, next) => {
     const statusCode = err.statusCode || 500;
-    const errMessage = err.message || "Intenal server error";
+    const message = err.message || "Intenal server error";
 
     return res.status(statusCode).json({
         success: false,
         statusCode,
-        errMessage,
+        message,
     });
 });
